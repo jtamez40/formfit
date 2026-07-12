@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import ReviewSection from "./components/ReviewSection";
+import FAQSection from "./components/FAQSection";
 
 
 
@@ -163,6 +164,7 @@ export default function Home() {
         ))}
       </section>
           <ReviewSection />
+        <FAQSection />
 
       <section className="for-work">
         <p className="kicker">UNIVERSAL WORK WEAR</p>
