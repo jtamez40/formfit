@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import ReviewSection from "./components/ReviewSection";
+
+
 
 const mediaItems = [
   {
@@ -159,6 +162,7 @@ export default function Home() {
           </article>
         ))}
       </section>
+          <ReviewSection />
 
       <section className="for-work">
         <p className="kicker">UNIVERSAL WORK WEAR</p>
