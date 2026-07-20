@@ -33,7 +33,7 @@ const features = [
   {
     eyebrow: "SATIN-LINED INTERIOR",
     title: "Take care of your hair while you work.",
-    body: "Ordinary cap fabrics can create friction and absorb moisture during long shifts. The smooth satin lining helps retain your hair’s natural moisture while reducing friction, dryness, frizz, and hat hair—without needing a separate bonnet underneath.",
+    body: "Ordinary cap fabrics can create friction and absorb moisture during long shifts. The smooth satin lining helps retain your hair’s natural moisture while reducing friction, dryness, frizz, and hat hair. Without needing a separate bonnet underneath.",
     src: "/products/satinLined.jpeg",
     alt: "Satin-lined interior of the cooking cap",
   },
@@ -74,7 +74,7 @@ export default function Home() {
     <main>
       <div className="announcement">FREE U.S. SHIPPING ON 2+ CAPS</div>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Form Fit home"><span>FORM</span> FIT</a>
+        <a className="brand" href="#top" aria-label="Satin Chef home"><span>SATIN</span> CHEF</a>
         <div className="header-proof"><span className="stars">★★★★★</span> Made for real kitchen shifts</div>
       </header>
 
@@ -116,7 +116,7 @@ export default function Home() {
         </div>
 
         <aside className="checkout-card" aria-label="Mock checkout form">
-          <div className="secure"><span>FORM FIT</span><span>🔒 Secure checkout</span></div>
+          <div className="secure"><span>SATIN CHEF</span><span>🔒 Secure checkout</span></div>
           <div className="order-product">
             <img src="/products/elasticBand.jpeg" alt="Black satin-lined cooking cap" />
             <div><b>Form Fit Satin-Lined Cooking Cap</b><p>Black · Shallow Fit</p></div>
@@ -130,7 +130,7 @@ export default function Home() {
           </div>
           <label>Email</label><input type="email" placeholder="you@example.com" />
           <label>Card information</label>
-          <div className="card-field"><input placeholder="1234 1234 1234 1234" /><div><input placeholder="MM / YY"/><input placeholder="CVC"/></div></div>
+          <div className="card-field"><input placeholder="1234 1234 1234 1234" /><div><input placeholder="MM / YY" /><input placeholder="CVC" /></div></div>
           <label>Name on card</label><input placeholder="Full name" />
           <label>Shipping address</label>
           <select aria-label="Country"><option>United States</option></select>
@@ -152,7 +152,7 @@ export default function Home() {
       <section className="story-intro">
         <p className="kicker">WHY WE MADE IT</p>
         <h2>Work headwear shouldn’t be something you simply put up with.</h2>
-        <p>Generic caps are built to fit the widest range of people—not to fit you well. Form Fit was designed around the real problems restaurant workers face: excess fabric, trapped heat, slipping caps, and hair damage after long shifts.</p>
+        <p>Generic caps are built to fit the widest range of people, ONE SIZE does NOT fit ALL. Satin Chef was designed around the real problems restaurant workers face: excess fabric, trapped heat, slipping caps, and hair damage after long shifts.</p>
       </section>
 
       <section className="features">
@@ -163,18 +163,18 @@ export default function Home() {
           </article>
         ))}
       </section>
-          <ReviewSection />
-        <FAQSection />
+      <ReviewSection />
+      <FAQSection />
 
       <section className="for-work">
         <p className="kicker">UNIVERSAL WORK WEAR</p>
         <h2>Designed for the kitchen. Ready for any active workplace.</h2>
         <p>Cooks, bakers, food-prep teams, caterers, baristas, production workers, and anyone who needs secure hair coverage can enjoy a cooler, cleaner, more comfortable fit.</p>
-        <a className="cta" href="#top">Shop the Form Fit Cap — $24.99</a>
+        <a className="cta" href="#top">Shop the Satin Chef Cap — $24.99</a>
         <small>Secure checkout · Easy ordering · Built for daily wear</small>
       </section>
 
-      <footer><div className="brand"><span>FORM</span> FIT</div><div>123 Main St, San Antonio, TX</div><a href="tel:2106668888">210-666-8888</a><div>© 2026 Form Fit. All rights reserved.</div></footer>
+      <footer><div className="brand"><span>SATIN </span> CHEF</div><div>123 Main St, San Antonio, TX</div><a href="tel:2106668888">210-666-8888</a><div>© 2026 Satin Chef. All rights reserved.</div></footer>
     </main>
   );
 }
