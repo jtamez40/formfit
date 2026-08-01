@@ -59,6 +59,36 @@ export default function Home() {
   const price = 24.99;
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const [loading, setLoading] = useState(false);
+
+  const handleBuyNow = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("https://n8n.ebutap.xyz/webhook/stripe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          productId: "prod_UzjsDw0hzgDKrA",
+          quantity: quantity,
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+      if (data) {
+        const redirectUrl = data.url || data.checkoutUrl || data.stripeUrl || data.redirectUrl;
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        }
+      }
+    } catch (error) {
+      console.error("Error sending buy request:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (mediaItems[active].type === "video") {
       videoRef.current?.play();
@@ -136,7 +166,9 @@ export default function Home() {
           <select aria-label="Country"><option>United States</option></select>
           <input placeholder="Address" />
           <div className="checkout-total"><span>Total</span><strong>${(price * quantity).toFixed(2)}</strong></div>
-          <button className="buy-button">Complete Order</button>
+          <button className="buy-button" onClick={handleBuyNow} disabled={loading}>
+            {loading ? "Processing..." : "Buy Now"}
+          </button>
           <p className="mock-note">Preview checkout — no payment will be processed.</p>
           <div className="payment-marks"><span>VISA</span><span>mastercard</span><span>AMEX</span><span>Pay</span></div>
         </aside>
