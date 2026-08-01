@@ -167,7 +167,7 @@ export default function ReviewSection() {
                 className="customer-reviews-carousel-arrow next"
                 aria-label="Next reviews"
                 onClick={() => scrollCarousel("next")}
-                disabled={carouselRef.current && carouselRef.current.scrollWidth - carouselRef.current.clientWidth <= carouselRef.current.scrollLeft + 1}
+                disabled={Boolean(carouselRef.current && carouselRef.current.scrollWidth - carouselRef.current.clientWidth <= carouselRef.current.scrollLeft + 1)}
               >
                 &#9654;
               </button>

@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import "./FAQSection.css";
 
 interface FAQItem {
   question: string;
-  answer: string | JSX.Element;
+  answer: ReactNode;
 }
 
 const faqData: FAQItem[] = [
