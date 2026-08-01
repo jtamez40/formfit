@@ -3,12 +3,16 @@
 /* Container */
 .customer-reviews-section {
   max-width: 1184px; /* matches other sections */
+  width: 100%;
   margin: 2rem auto;
   padding: 2rem 2.5rem;
   background: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 @media (max-width: 560px) {
@@ -72,6 +76,7 @@
   overflow-x: auto;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+  max-width: 100%;
 }
 
 .customer-reviews-pill {
@@ -103,6 +108,8 @@
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .customer-reviews-carousel {
@@ -112,6 +119,8 @@
   gap: 1rem;
   padding: 0.5rem 0;
   scrollbar-width: none; /* Firefox */
+  width: 100%;
+  max-width: 100%;
 }
 
 .customer-reviews-carousel::-webkit-scrollbar {
@@ -128,6 +137,7 @@
   color: var(--ink);
   scroll-snap-align: start;
   position: relative;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -206,6 +216,7 @@
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s;
+  z-index: 2;
 }
 
 .customer-reviews-carousel-arrow:hover,
@@ -216,11 +227,11 @@
 }
 
 .customer-reviews-carousel-arrow.prev {
-  left: -16px;
+  left: 4px;
 }
 
 .customer-reviews-carousel-arrow.next {
-  right: -16px;
+  right: 4px;
 }
 
 .customer-reviews-carousel-arrow:disabled {
@@ -241,8 +252,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -254,10 +267,12 @@
   background: #fff;
   border-radius: 12px;
   max-width: 90vw;
+  width: 100%;
   max-height: 80vh;
   overflow-y: auto;
   padding: 2rem;
   position: relative;
+  box-sizing: border-box;
 }
 
 .customer-reviews-modal-close {
