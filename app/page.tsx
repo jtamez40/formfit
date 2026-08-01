@@ -4,8 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import ReviewSection from "./components/ReviewSection";
 import FAQSection from "./components/FAQSection";
 
-
-
 const mediaItems = [
   {
     type: "video",
@@ -109,7 +107,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="left-column">
+        <div className="hero-gallery">
           <div className="carousel" aria-label="Product image carousel">
             <button className="arrow" onClick={() => move(-1)} aria-label="Previous product image">‹</button>
             <div className="carousel-main">
@@ -135,43 +133,27 @@ export default function Home() {
               </button>
             ))}
           </div>
-          <div className="hero-copy">
-            <p className="kicker">SATIN-LINED • SHALLOW FIT • BREATHABLE</p>
-            <h1>The Kitchen Cap That Actually Fits Smaller Heads.</h1>
-            <p className="lead">No bulky fabric. No visible mesh. No extra bonnet underneath. Just a secure, high-and-tight fit built for long shifts.</p>
-            <div className="trust-row">
-              <span>✓ Hair-friendly satin</span><span>✓ Non-see-through mesh</span><span>✓ Secure elastic fit</span>
-            </div>
-          </div>
         </div>
 
-        <aside className="checkout-card" aria-label="Mock checkout form">
-          <div className="secure"><span>SATIN CHEF</span><span>🔒 Secure checkout</span></div>
-          <div className="order-product">
-            <img src="/products/elasticBand.jpeg" alt="Black satin-lined cooking cap" />
-            <div><b>Form Fit Satin-Lined Cooking Cap</b><p>Black · Shallow Fit</p></div>
-            <strong>${price.toFixed(2)}</strong>
+        <div className="hero-content">
+          <p className="kicker">SATIN-LINED • SHALLOW FIT • BREATHABLE</p>
+          <h1>The Kitchen Cap That Actually Fits Smaller Heads.</h1>
+          <p className="lead">No bulky fabric. No visible mesh. No extra bonnet underneath. Just a secure, high-and-tight fit built for long shifts.</p>
+          <div className="trust-row">
+            <span>✓ Hair-friendly satin</span><span>✓ Non-see-through mesh</span><span>✓ Secure elastic fit</span>
           </div>
-          <label>Quantity</label>
-          <div className="quantity">
-            <button onClick={() => setQuantity(Math.max(1, quantity - 1))} aria-label="Decrease quantity">−</button>
-            <span>{quantity}</span>
-            <button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button>
+          <div className="hero-purchase">
+            <label className="quantity-label">Quantity</label>
+            <div className="quantity">
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} aria-label="Decrease quantity">−</button>
+              <span>{quantity}</span>
+              <button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button>
+            </div>
+            <button className="buy-button" onClick={handleBuyNow} disabled={loading}>
+              {loading ? "Processing..." : "Buy Now"}
+            </button>
           </div>
-          <label>Email</label><input type="email" placeholder="you@example.com" />
-          <label>Card information</label>
-          <div className="card-field"><input placeholder="1234 1234 1234 1234" /><div><input placeholder="MM / YY" /><input placeholder="CVC" /></div></div>
-          <label>Name on card</label><input placeholder="Full name" />
-          <label>Shipping address</label>
-          <select aria-label="Country"><option>United States</option></select>
-          <input placeholder="Address" />
-          <div className="checkout-total"><span>Total</span><strong>${(price * quantity).toFixed(2)}</strong></div>
-          <button className="buy-button" onClick={handleBuyNow} disabled={loading}>
-            {loading ? "Processing..." : "Buy Now"}
-          </button>
-          <p className="mock-note">Preview checkout — no payment will be processed.</p>
-          <div className="payment-marks"><span>VISA</span><span>mastercard</span><span>AMEX</span><span>Pay</span></div>
-        </aside>
+        </div>
       </section>
 
       <section className="proof-strip">
