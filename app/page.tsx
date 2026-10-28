@@ -58,9 +58,13 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleBuyNow = async () => {
+  const handleOrderNow = async () => {
+    if (loading) return;
     setLoading(true);
+    setErrorMessage(null);
+
     try {
       const response = await fetch("https://n8n.ebutap.xyz/webhook/stripe", {
         method: "POST",
@@ -73,16 +77,22 @@ export default function Home() {
         }),
       });
 
-      const data = await response.json().catch(() => null);
-      if (data) {
-        const redirectUrl = data.url || data.checkoutUrl || data.stripeUrl || data.redirectUrl;
-        if (redirectUrl) {
-          window.location.href = redirectUrl;
-        }
+      if (!response.ok) {
+        throw new Error(`Checkout service responded with status ${response.status}`);
       }
+
+      const data = await response.json().catch(() => null);
+
+      if (data && data.checkoutUrl) {
+        window.location.assign(data.checkoutUrl);
+        return;
+      }
+
+      setErrorMessage("Unable to initiate checkout. Checkout URL is missing. Please try again.");
+      setLoading(false);
     } catch (error) {
-      console.error("Error sending buy request:", error);
-    } finally {
+      console.error("Error creating checkout session:", error);
+      setErrorMessage("We encountered an issue preparing your checkout. Please try again in a moment.");
       setLoading(false);
     }
   };
@@ -149,9 +159,19 @@ export default function Home() {
               <span>{quantity}</span>
               <button onClick={() => setQuantity(quantity + 1)} aria-label="Increase quantity">+</button>
             </div>
-            <button className="buy-button" onClick={handleBuyNow} disabled={loading}>
-              {loading ? "Processing..." : "Buy Now"}
+            <button
+              className="buy-button"
+              onClick={handleOrderNow}
+              disabled={loading}
+              aria-busy={loading}
+            >
+              {loading ? "Processing..." : "Order Now"}
             </button>
+            {errorMessage && (
+              <div className="checkout-error-msg" role="alert">
+                {errorMessage}
+              </div>
+            )}
           </div>
         </div>
       </section>

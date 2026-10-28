@@ -230,6 +230,18 @@ video {
   cursor: not-allowed;
 }
 
+.checkout-error-msg {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 4px;
+}
+
 .carousel {
   display: grid;
   grid-template-columns: 40px 1fr 40px;
