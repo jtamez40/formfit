@@ -423,7 +423,7 @@ function CheckoutForm() {
             <div className="checkout-totals-row">
               <span>Shipping</span>
               <span style={{ color: freeShipping ? "var(--green)" : "var(--ink)", fontWeight: 700 }}>
-                {freeShipping ? "FREE (2+ Caps Promo)" : `$${shippingCost.toFixed(2)}`}
+                {freeShipping ? "FREE" : `$${shippingCost.toFixed(2)}`}
               </span>
             </div>
             <div className="checkout-totals-row final-total">
