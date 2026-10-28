@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { verifyCheckoutSession, type VerificationResult } from "@/lib/stripe";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Order Confirmed",
+  description: "Your Satin Chef order confirmation.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

@@ -1,4 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Order Canceled",
+  description: "Your Satin Chef checkout was canceled.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function OrderCancelPage() {
   return (
