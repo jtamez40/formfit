@@ -108,11 +108,18 @@ export default async function OrderSuccessPage({ searchParams }: PageProps) {
               </div>
 
               <div className="store-info-box">
-                <div className="store-info-header">📍 Store & Order Pickup</div>
+                <div className="store-info-header">✉️ ORDER CONFIRMATION</div>
                 <div className="store-info-details">
-                  <b>Satin Chef Kitchen Store</b>
-                  <p>123 Main St, San Antonio, TX</p>
-                  <p>Phone: 210-666-8888</p>
+                  <b>Your receipt is on its way!</b>
+                  <p>
+                    You&apos;ll receive an order confirmation email at the email address provided during checkout.
+                  </p>
+                  <p>
+                    Please check your inbox for your receipt and order details.
+                  </p>
+                  <p>
+                    Thank you for shopping with Satin Chef!
+                  </p>
                 </div>
               </div>
 
@@ -121,10 +128,6 @@ export default async function OrderSuccessPage({ searchParams }: PageProps) {
                   Back to Home
                 </Link>
               </div>
-
-              <p className="email-note">
-                Please check your email {result.customerEmail ? `(${result.customerEmail})` : ""} for your receipt and full tracking details.
-              </p>
             </>
           ) : result.status === "unpaid" ? (
             // Stripe session found, but payment NOT verified as paid

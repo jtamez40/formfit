@@ -793,12 +793,13 @@ footer a {
   font-size: 14px;
   color: var(--ink);
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .store-info-details p {
   font-size: 13px;
   color: var(--muted);
-  margin: 2px 0;
+  line-height: 1.5;
+  margin: 6px 0;
 }
 .order-actions {
   display: flex;
