@@ -12,3 +12,8 @@ interface D1Database {
   batch<T = unknown>(statements: any[]): Promise<any[]>;
   exec(query: string): Promise<any>;
 }
+
+interface Window {
+  fbq?: (...args: any[]) => void;
+  _fbq?: any;
+}
