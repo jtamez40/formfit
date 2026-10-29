@@ -10,7 +10,7 @@ import {
 } from "../lib/meta-pixel.ts";
 
 test("FB_PIXEL_ID matches the expected Meta Pixel ID", () => {
-  assert.equal(FB_PIXEL_ID, "2051072762253741");
+  assert.equal(FB_PIXEL_ID, "1518467476766399");
 });
 
 test("pageview calls window.fbq with PageView", () => {
